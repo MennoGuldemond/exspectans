@@ -1,6 +1,15 @@
-using System.Collections.Generic;
-
-public class Grid
+public class World
 {
-    public List<Tile> Tiles { get; set; }
+    public int Width { get; private set; }
+    public int Height { get; private set; }
+
+    public Tile[,] Tiles { get; set; }
+
+    public World(int width, int height)
+    {
+        Width = width;
+        Height = height;
+
+        Tiles = new Tile[Width, Height];
+    }
 }

@@ -40,6 +40,7 @@
     <Compile Include="Assets\Scripts\Data\Tile.cs" />
     <Compile Include="Assets\Scripts\Data\Grid.cs" />
     <Compile Include="Assets\Scripts\Data\TileType.cs" />
+    <Compile Include="Assets\Scripts\WorldGenerator.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
