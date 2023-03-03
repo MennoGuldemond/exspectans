@@ -1,11 +1,14 @@
-﻿public class TileType
+﻿namespace Game.Data
 {
-    public string Name { get; set; }
-    public int MoveCost { get; set; }
-
-    public TileType(string name, int moveCost)
+    public class TileType
     {
-        Name = name;
-        MoveCost = moveCost;
+        public string Name { get; set; }
+        public int MoveCost { get; set; }
+
+        public TileType(string name, int moveCost)
+        {
+            Name = name;
+            MoveCost = moveCost;
+        }
     }
 }

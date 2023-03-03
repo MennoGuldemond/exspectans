@@ -1,15 +1,18 @@
-public class World
+namespace Game.Data
 {
-    public int Width { get; private set; }
-    public int Height { get; private set; }
-
-    public Tile[,] Tiles { get; set; }
-
-    public World(int width, int height)
+    public class World
     {
-        Width = width;
-        Height = height;
+        public int Width { get; private set; }
+        public int Height { get; private set; }
 
-        Tiles = new Tile[Width, Height];
+        public Tile[,] Tiles { get; set; }
+
+        public World(int width, int height)
+        {
+            Width = width;
+            Height = height;
+
+            Tiles = new Tile[Width, Height];
+        }
     }
 }

@@ -1,27 +1,33 @@
-﻿using UnityEngine;
+﻿using Game.Data;
+using UnityEngine;
 
-public class WorldGenerator : MonoBehaviour
+public class WorldGenerator
 {
-    [field:SerializeField]
-    public int Width { get; set; }
-    [field:SerializeField]
-    public int Height { get; set; }
-
-
-    public void Start()
+    public World Generate(int width, int height)
     {
-        Generate();
-    }
+        var world = new World(width, height);
 
-    public World Generate()
-    {
-        var world = new World(Width, Height);
-
-        for (int x = 0; x < Width; x++)
+        for (int x = 0; x < width; x++)
         {
-            for (int y = 0; y < Height; y++)
+            for (int y = 0; y < height; y++)
             {
-                var tileType = new TileType("Stone", 1);
+                TileType tileType;
+                var random = Random.Range(0, 3);
+                switch (random)
+                {
+                    case 0: 
+                        tileType =new TileType("Stone", 1);
+                        break;
+                    case 1:
+                        tileType = new TileType("Sand", 1);
+                        break;
+                    case 2:
+                        tileType = new TileType("Dirt", 1);
+                        break;
+                    default:
+                        tileType = new TileType("Stone", 1);
+                        break;
+                }
                 world.Tiles[x, y] = new Tile(x, y, tileType);
             }
         }
