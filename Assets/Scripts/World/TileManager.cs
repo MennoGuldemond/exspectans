@@ -18,6 +18,11 @@ namespace Exspectans.World
             return _tiles;
         }
 
+        public TileScriptableObject Get(string tileName)
+        {
+            return _tiles.Find(x => x.Name == tileName);
+        }
+
         public Sprite GetSprite(string tileName)
         {
             return _tiles.Find(x => x.Name == tileName).Sprite;

@@ -11,6 +11,8 @@ namespace Exspectans
         [SerializeField]
         private TileManager _tileManager;
         [SerializeField]
+        private WorldManager _worldManager;
+        [SerializeField]
         private WorldGenerator _worldGenerator;
         [SerializeField]
         private WorldRenderer _worldRenderer;
@@ -21,6 +23,7 @@ namespace Exspectans
 
             DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(TileManager), Factory = () => _tileManager, IsSingleton = true });
             DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(GameManager), Factory = () => _gameManager, IsSingleton = true });
+            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(WorldManager), Factory = () => _worldManager, IsSingleton = true });
             DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(WorldGenerator), Factory = () => _worldGenerator, IsSingleton = true });
             DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(WorldRenderer), Factory = () => _worldRenderer, IsSingleton = true });
         }

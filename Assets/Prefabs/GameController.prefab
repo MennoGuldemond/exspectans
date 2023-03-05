@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 2723309594096807466}
   - component: {fileID: 4507374939284784734}
   - component: {fileID: 1830774957125015189}
+  - component: {fileID: 4195051617357799308}
   - component: {fileID: 2723309594096807467}
   - component: {fileID: 7195052987436658507}
   - component: {fileID: 8594576985775712553}
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 1830774957125015189}
   _tileManager: {fileID: 7195052987436658507}
+  _worldManager: {fileID: 4195051617357799308}
   _worldGenerator: {fileID: 8594576985775712553}
   _worldRenderer: {fileID: 2723309594096807467}
 --- !u!114 &1830774957125015189
@@ -190,6 +192,18 @@ MonoBehaviour:
   WorldWidth: 10
   WorldHeight: 10
   Outline: {fileID: 2085346427812366235, guid: 166d2302101036348a7ea6b6b1a5ec5f, type: 3}
+--- !u!114 &4195051617357799308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723309594096807469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f93ccf1f432c594589e6ceb33482e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2723309594096807467
 MonoBehaviour:
   m_ObjectHideFlags: 0

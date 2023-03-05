@@ -18,11 +18,11 @@ namespace Exspectans.World
             _tileManager = DependenciesContext.Dependencies.Get<TileManager>();
         }
 
-        public Tilemap Render(WorldData world, int width, int height)
+        public Tilemap Render(WorldData world)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < world.Width; x++)
             {
-                for (int y = 0; y < height; y++)
+                for (int y = 0; y < world.Height; y++)
                 {
                     var tile = ScriptableObject.CreateInstance<Tile>();
                     var tileData = world.Tiles[x, y];
