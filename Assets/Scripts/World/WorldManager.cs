@@ -25,5 +25,10 @@ namespace Exspectans.World
             Tilemap = _worldRenderer.Render(WorldData);
             return Tilemap;
         }
+
+        public Data.TileData GetTileData(int x, int y)
+        {
+            return WorldData.Tiles[x, y];
+        }
     }
 }
