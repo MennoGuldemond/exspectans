@@ -1,33 +1,36 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CameraController : MonoBehaviour
+namespace Exspectans
 {
-    private PlayerControls _controls;
-    private Rigidbody2D _rigidBody;
-
-    [field: SerializeField]
-    public float Speed { get; set; }
-
-    void Awake()
+    public class CameraController : MonoBehaviour
     {
-        _controls = new PlayerControls();
-        _rigidBody = GetComponent<Rigidbody2D>();
-    }
+        private PlayerControls _controls;
+        private Rigidbody2D _rigidBody;
 
-    private void OnEnable()
-    {
-        _controls.Player.Move.Enable();
-    }
+        [field: SerializeField]
+        public float Speed { get; set; }
 
-    private void OnDisable()
-    {
-        _controls.Player.Move.Disable();
-    }
+        void Awake()
+        {
+            _controls = new PlayerControls();
+            _rigidBody = GetComponent<Rigidbody2D>();
+        }
 
-    public void OnMove(InputValue input)
-    {
-        var direction = input.Get<Vector2>();
-        _rigidBody.velocity = direction * Speed;
+        private void OnEnable()
+        {
+            _controls.Player.Move.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _controls.Player.Move.Disable();
+        }
+
+        public void OnMove(InputValue input)
+        {
+            var direction = input.Get<Vector2>();
+            _rigidBody.velocity = direction * Speed;
+        }
     }
 }

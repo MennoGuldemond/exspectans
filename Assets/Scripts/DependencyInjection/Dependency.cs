@@ -1,8 +1,11 @@
 using System;
 
-public struct Dependency
+namespace Exspectans.DependencyInjection
 {
-    public Type Type { get; set; }
-    public Func<object> Factory { get; set; }
-    public bool IsSingleton { get; set; }
+    public struct Dependency
+    {
+        public Type Type { get; set; }
+        public Func<object> Factory { get; set; }
+        public bool IsSingleton { get; set; }
+    }
 }

@@ -1,4 +1,4 @@
-namespace Game.Data
+namespace Exspectans.Data
 {
     public class Tile
     {

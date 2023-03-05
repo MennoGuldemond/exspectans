@@ -1,14 +1,18 @@
+using Exspectans.DependencyInjection;
 using UnityEngine;
 
-public class GameDependenciesContext : MonoBehaviour
+namespace Exspectans
 {
-    [SerializeField]
-    private GameManager _gameManager;
-
-    private void Awake()
+    public class GameDependenciesContext : MonoBehaviour
     {
-        DontDestroyOnLoad(gameObject);
+        [SerializeField]
+        private GameManager _gameManager;
 
-        DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(GameManager), Factory = () => _gameManager, IsSingleton = true });
+        private void Awake()
+        {
+            DontDestroyOnLoad(gameObject);
+
+            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(GameManager), Factory = () => _gameManager, IsSingleton = true });
+        }
     }
 }

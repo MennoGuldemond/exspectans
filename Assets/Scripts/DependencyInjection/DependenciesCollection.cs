@@ -1,37 +1,40 @@
 using System.Collections.Generic;
 using System;
 
-public class DependenciesCollection
+namespace Exspectans.DependencyInjection
 {
-    private Dictionary<Type, Dependency> dependencies = new();
-    private Dictionary<Type, object> singletons = new();
-
-    public void Add(Dependency dependency) => dependencies.Add(dependency.Type, dependency);
-
-    public object Get(Type type)
+    public class DependenciesCollection
     {
-        if (!dependencies.ContainsKey(type))
-        {
-            throw new ArgumentException($"Type is not a dependency: {type.FullName}");
-        }
+        private Dictionary<Type, Dependency> dependencies = new();
+        private Dictionary<Type, object> singletons = new();
 
-        var dependency = dependencies[type];
-        if (dependency.IsSingleton)
+        public void Add(Dependency dependency) => dependencies.Add(dependency.Type, dependency);
+
+        public object Get(Type type)
         {
-            if (!singletons.ContainsKey(type))
+            if (!dependencies.ContainsKey(type))
             {
-                singletons.Add(type, dependency.Factory());
+                throw new ArgumentException($"Type is not a dependency: {type.FullName}");
             }
-            return singletons[type];
-        }
-        else
-        {
-            return dependency.Factory();
-        }
-    }
 
-    public T Get<T>()
-    {
-        return (T)Get(typeof(T));
+            var dependency = dependencies[type];
+            if (dependency.IsSingleton)
+            {
+                if (!singletons.ContainsKey(type))
+                {
+                    singletons.Add(type, dependency.Factory());
+                }
+                return singletons[type];
+            }
+            else
+            {
+                return dependency.Factory();
+            }
+        }
+
+        public T Get<T>()
+        {
+            return (T)Get(typeof(T));
+        }
     }
 }

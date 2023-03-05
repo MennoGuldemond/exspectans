@@ -1,4 +1,7 @@
-public static class DependenciesContext
+namespace Exspectans.DependencyInjection
 {
-    public static DependenciesCollection Dependencies { get; } = new DependenciesCollection();
+    public static class DependenciesContext
+    {
+        public static DependenciesCollection Dependencies { get; } = new DependenciesCollection();
+    }
 }

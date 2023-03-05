@@ -1,33 +1,36 @@
-using Game.Data;
+using Exspectans.Data;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[RequireComponent(typeof(Grid))]
-public class WorldRenderer : MonoBehaviour
+namespace Exspectans
 {
-    [SerializeField]
-    public List<TileScriptableObject> tileScriptableObjects = new();
-
-    private Tilemap _tilemap;
-
-    void Start()
+    [RequireComponent(typeof(Grid))]
+    public class WorldRenderer : MonoBehaviour
     {
-        _tilemap = GetComponentInChildren<Tilemap>();
-    }
+        [SerializeField]
+        public List<TileScriptableObject> tileScriptableObjects = new();
 
-    public Tilemap Render(World world, int width, int height)
-    {
-        for (int x = 0; x < width; x++)
+        private Tilemap _tilemap;
+
+        void Start()
         {
-            for (int y = 0; y < height; y++)
-            {
-                var tile = ScriptableObject.CreateInstance<UnityEngine.Tilemaps.Tile>();
-                var tileData = world.Tiles[x, y];
-                tile.sprite = tileScriptableObjects.Find(x => x.name == tileData.Type.Name).Sprite;
-                _tilemap.SetTile(new Vector3Int(x, y, 0), tile);
-            }
+            _tilemap = GetComponentInChildren<Tilemap>();
         }
-        return _tilemap;
+
+        public Tilemap Render(World world, int width, int height)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    var tile = ScriptableObject.CreateInstance<UnityEngine.Tilemaps.Tile>();
+                    var tileData = world.Tiles[x, y];
+                    tile.sprite = tileScriptableObjects.Find(x => x.name == tileData.Type.Name).Sprite;
+                    _tilemap.SetTile(new Vector3Int(x, y, 0), tile);
+                }
+            }
+            return _tilemap;
+        }
     }
 }
