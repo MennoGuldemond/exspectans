@@ -28,7 +28,11 @@ namespace Exspectans.World
 
         public Data.TileData GetTileData(int x, int y)
         {
-            return WorldData.Tiles[x, y];
+            if (x >= 0 && x < WorldData.Width && y >= 0 && y < WorldData.Height)
+            {
+                return WorldData.Tiles[x, y];
+            }
+            return null;
         }
     }
 }
