@@ -1,4 +1,5 @@
 using Exspectans.DependencyInjection;
+using Exspectans.World;
 using UnityEngine;
 
 namespace Exspectans
