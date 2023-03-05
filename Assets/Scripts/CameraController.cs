@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     [field: SerializeField]
     public float Speed { get; set; }
 
-    void Start()
+    void Awake()
     {
         _controls = new PlayerControls();
         _rigidBody = GetComponent<Rigidbody2D>();
