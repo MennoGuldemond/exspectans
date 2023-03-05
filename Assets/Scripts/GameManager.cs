@@ -33,11 +33,10 @@ namespace Exspectans
         public void OnPrimary()
         {
             var mousePos = GetMousePosition();
-            var tile = _worldmanager.Tilemap.GetTile(mousePos);
-
-            if (tile)
+            var tile = _worldmanager.GetTileData(mousePos.x, mousePos.y);
+            if (tile != null)
             {
-                Debug.Log($"Tile found at {mousePos}");
+                Debug.Log($"{tile.Name} located at {mousePos}");
             }
         }
 
