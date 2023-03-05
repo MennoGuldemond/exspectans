@@ -3,10 +3,12 @@ using UnityEngine;
 public class GameDependenciesContext : MonoBehaviour
 {
     [SerializeField]
-    private GameManager GameManager;
+    private GameManager _gameManager;
 
     private void Awake()
     {
-        DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(GameManager), Factory = () => GameManager, IsSingleton = true });
+        DontDestroyOnLoad(gameObject);
+
+        DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(GameManager), Factory = () => _gameManager, IsSingleton = true });
     }
 }
