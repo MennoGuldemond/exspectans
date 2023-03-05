@@ -13,6 +13,13 @@ public class CameraController : MonoBehaviour
     {
         _controls = new PlayerControls();
         _rigidBody = GetComponent<Rigidbody2D>();
+
+        // This is a test for dependency injection
+        var gameManager = DependenciesContext.Dependencies.Get<GameManager>();
+        if (gameManager != null)
+        {
+            Debug.Log("Game manager found!");
+        }
     }
 
     private void OnEnable()
