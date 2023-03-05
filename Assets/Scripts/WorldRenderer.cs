@@ -31,7 +31,7 @@ public class WorldRenderer : MonoBehaviour
         {
             for (int y = 0; y < Height; y++)
             {
-                var tile = new UnityEngine.Tilemaps.Tile();
+                var tile = ScriptableObject.CreateInstance<UnityEngine.Tilemaps.Tile>();
                 var tileData = world.Tiles[x, y];
                 tile.sprite = tileScriptableObjects.Find(x => x.name == tileData.Type.Name).Sprite;
                 _tilemap.SetTile(new Vector3Int(x, y, 0), tile);
