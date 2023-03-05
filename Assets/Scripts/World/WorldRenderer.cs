@@ -1,32 +1,32 @@
 using Exspectans.Data;
-using System.Collections.Generic;
+using Exspectans.DependencyInjection;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Exspectans
+namespace Exspectans.World
 {
     [RequireComponent(typeof(Grid))]
     public class WorldRenderer : MonoBehaviour
     {
-        [SerializeField]
-        public List<TileScriptableObject> tileScriptableObjects = new();
-
         private Tilemap _tilemap;
+        private TileManager _tileManager;
 
         void Start()
         {
             _tilemap = GetComponentInChildren<Tilemap>();
+
+            _tileManager = DependenciesContext.Dependencies.Get<TileManager>();
         }
 
-        public Tilemap Render(World world, int width, int height)
+        public Tilemap Render(WorldData world, int width, int height)
         {
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    var tile = ScriptableObject.CreateInstance<UnityEngine.Tilemaps.Tile>();
+                    var tile = ScriptableObject.CreateInstance<Tile>();
                     var tileData = world.Tiles[x, y];
-                    tile.sprite = tileScriptableObjects.Find(x => x.name == tileData.Type.Name).Sprite;
+                    tile.sprite = _tileManager.GetSprite(tileData.Name);
                     _tilemap.SetTile(new Vector3Int(x, y, 0), tile);
                 }
             }

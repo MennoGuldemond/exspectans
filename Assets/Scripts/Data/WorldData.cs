@@ -1,18 +1,16 @@
 namespace Exspectans.Data
 {
-    public class World
+    public class WorldData
     {
         public int Width { get; private set; }
         public int Height { get; private set; }
+        public TileData[,] Tiles { get; set; }
 
-        public Tile[,] Tiles { get; set; }
-
-        public World(int width, int height)
+        public WorldData(int width, int height)
         {
             Width = width;
             Height = height;
-
-            Tiles = new Tile[Width, Height];
+            Tiles = new TileData[Width, Height];
         }
     }
 }

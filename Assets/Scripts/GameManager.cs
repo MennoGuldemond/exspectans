@@ -1,15 +1,17 @@
+using Exspectans.DependencyInjection;
+using Exspectans.World;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace Exspectans
 {
-    [RequireComponent(typeof(WorldRenderer))]
     public class GameManager : MonoBehaviour
     {
         public int WorldWidth = 10;
         public int WorldHeight = 10;
         public GameObject Outline;
 
+        private WorldGenerator _worldGenerator;
         private WorldRenderer _worldRenderer;
         private Tilemap _tilemap;
 
@@ -17,11 +19,10 @@ namespace Exspectans
 
         void Start()
         {
-            _worldRenderer = GetComponent<WorldRenderer>();
+            _worldGenerator = DependenciesContext.Dependencies.Get<WorldGenerator>();
+            _worldRenderer = DependenciesContext.Dependencies.Get<WorldRenderer>();
 
-            var worldGenerator = new WorldGenerator();
-            var world = worldGenerator.Generate(WorldWidth, WorldHeight);
-
+            var world = _worldGenerator.Generate(WorldWidth, WorldHeight);
             _tilemap = _worldRenderer.Render(world, WorldWidth, WorldHeight);
         }
 
