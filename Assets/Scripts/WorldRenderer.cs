@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class WorldRenderer : MonoBehaviour
 {
     [SerializeField]
-    public List<TileScriptableObject> tileScriptableObjects = new List<TileScriptableObject>();
+    public List<TileScriptableObject> tileScriptableObjects = new();
 
     public int Width= 5;
     public int Height = 5;

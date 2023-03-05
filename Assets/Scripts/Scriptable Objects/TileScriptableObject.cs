@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Tile", menuName = "World Tile")]
+[CreateAssetMenu(fileName = "New Tile", menuName = "Custom/World Tile")]
 public class TileScriptableObject : ScriptableObject
 {
     public Sprite Sprite;
