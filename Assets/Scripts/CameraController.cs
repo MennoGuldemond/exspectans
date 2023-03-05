@@ -15,6 +15,16 @@ public class CameraController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
     }
 
+    private void OnEnable()
+    {
+        _controls.Player.Move.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _controls.Player.Move.Disable();
+    }
+
     public void OnMove(InputValue input)
     {
         var direction = input.Get<Vector2>();
