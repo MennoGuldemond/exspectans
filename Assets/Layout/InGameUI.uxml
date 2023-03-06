@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Layout/stylesheet.uss?fileID=7433441132597879392&amp;guid=dd6609924aa44b64d8bcfaba4fb67c76&amp;type=3#stylesheet" />
+    <ui:VisualElement name="container" style="height: 100%; width: 100%; -unity-background-image-tint-color: rgb(255, 255, 255);">
+        <ui:VisualElement name="header" style="width: 98%; height: 10%; justify-content: flex-start; flex-direction: row; padding-left: 16px; padding-right: 16px; padding-top: 2px; padding-bottom: 2px; background-image: url(&apos;project://database/Assets/Sprites/UI/glassPanel_cornerBR.png?fileID=21300000&amp;guid=ba93797dd1e599948991808f4adec7bc&amp;type=3#glassPanel_cornerBR&apos;); align-items: center; margin-left: auto; margin-right: auto; margin-top: -6px; margin-bottom: 0;">
+            <ui:Button text="Menu" display-tooltip-when-elided="true" name="MenuButton" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,4 @@
+.button {
+    background-image: url('project://database/Assets/Sprites/UI/squareWhite.png?fileID=21300000&guid=1e739385f66c5664e8ad71e2c12bdb27&type=3#squareWhite');
+    color: rgb(0, 0, 0);
+}
