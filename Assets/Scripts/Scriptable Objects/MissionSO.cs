@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Mission", menuName = "Custom/Mission")]
-public class MissionScriptableObject : ScriptableObject
+public class MissionSO : ScriptableObject
 {
     public string Title;
     public string Description;

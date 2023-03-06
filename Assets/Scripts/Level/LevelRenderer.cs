@@ -3,10 +3,10 @@ using Exspectans.DependencyInjection;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Exspectans.World
+namespace Exspectans.Level
 {
     [RequireComponent(typeof(Grid))]
-    public class WorldRenderer : MonoBehaviour
+    public class LevelRenderer : MonoBehaviour
     {
         private Tilemap _tilemap;
         private TileManager _tileManager;
@@ -14,18 +14,17 @@ namespace Exspectans.World
         void Start()
         {
             _tilemap = GetComponentInChildren<Tilemap>();
-
             _tileManager = DependenciesContext.Dependencies.Get<TileManager>();
         }
 
-        public Tilemap Render(WorldData world)
+        public Tilemap Render(LevelData level)
         {
-            for (int x = 0; x < world.Width; x++)
+            for (int x = 0; x < level.Width; x++)
             {
-                for (int y = 0; y < world.Height; y++)
+                for (int y = 0; y < level.Height; y++)
                 {
                     var tile = ScriptableObject.CreateInstance<Tile>();
-                    var tileData = world.Tiles[x, y];
+                    var tileData = level.Tiles[x, y];
                     tile.sprite = _tileManager.GetSprite(tileData.Name);
                     _tilemap.SetTile(new Vector3Int(x, y, 0), tile);
                 }

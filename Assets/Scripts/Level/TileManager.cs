@@ -2,23 +2,23 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Exspectans.World
+namespace Exspectans.Level
 {
     public class TileManager : MonoBehaviour
     {
-        private List<TileScriptableObject> _tiles = new();
+        private List<TileSO> _tiles = new();
 
         void Awake()
         {
-            _tiles = Resources.LoadAll<TileScriptableObject>("ScriptableObjects/Tiles").ToList();
+            _tiles = Resources.LoadAll<TileSO>("ScriptableObjects/Tiles").ToList();
         }
 
-        public List<TileScriptableObject> GetAll()
+        public List<TileSO> GetAll()
         {
             return _tiles;
         }
 
-        public TileScriptableObject Get(string tileName)
+        public TileSO Get(string tileName)
         {
             return _tiles.Find(x => x.Name == tileName);
         }

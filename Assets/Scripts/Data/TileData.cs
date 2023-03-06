@@ -1,5 +1,8 @@
+using System;
+
 namespace Exspectans.Data
 {
+    [Serializable]
     public class TileData
     {
         public int X { get; set; }
@@ -15,7 +18,7 @@ namespace Exspectans.Data
             MoveCost = moveCost;
         }
 
-        public TileData(int xPos, int yPos, TileScriptableObject tileSO)
+        public TileData(int xPos, int yPos, TileSO tileSO)
         {
             X = xPos;
             Y = yPos;

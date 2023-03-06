@@ -1,5 +1,5 @@
 using Exspectans.DependencyInjection;
-using Exspectans.World;
+using Exspectans.Level;
 using UnityEngine;
 
 namespace Exspectans
@@ -10,14 +10,14 @@ namespace Exspectans
         public int WorldHeight = 10;
         public GameObject Outline;
 
-        private WorldManager _worldmanager;
+        private LevelManager _levelmanager;
 
         private Vector3Int previousMousePos = new();
 
         void Start()
         {
-            _worldmanager = DependenciesContext.Dependencies.Get<WorldManager>();
-            _worldmanager.Create(WorldWidth, WorldHeight);
+            _levelmanager = DependenciesContext.Dependencies.Get<LevelManager>();
+            _levelmanager.Create(WorldWidth, WorldHeight);
         }
 
         private void Update()
@@ -33,7 +33,7 @@ namespace Exspectans
         public void OnPrimary()
         {
             var mousePos = GetMousePosition();
-            var tile = _worldmanager.GetTileData(mousePos.x, mousePos.y);
+            var tile = _levelmanager.GetTileData(mousePos.x, mousePos.y);
             if (tile != null)
             {
                 Debug.Log($"{tile.Name} located at {mousePos}");
@@ -43,7 +43,7 @@ namespace Exspectans
         private Vector3Int GetMousePosition()
         {
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            return _worldmanager.Tilemap.WorldToCell(mouseWorldPos);
+            return _levelmanager.Tilemap.WorldToCell(mouseWorldPos);
         }
     }
 }

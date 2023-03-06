@@ -1,5 +1,5 @@
 using Exspectans.DependencyInjection;
-using Exspectans.World;
+using Exspectans.Level;
 using UnityEngine;
 
 namespace Exspectans
@@ -11,11 +11,11 @@ namespace Exspectans
         [SerializeField]
         private TileManager _tileManager;
         [SerializeField]
-        private WorldManager _worldManager;
+        private LevelManager _worldManager;
         [SerializeField]
-        private WorldGenerator _worldGenerator;
+        private LevelGenerator _worldGenerator;
         [SerializeField]
-        private WorldRenderer _worldRenderer;
+        private LevelRenderer _worldRenderer;
 
         private void Awake()
         {
@@ -23,9 +23,9 @@ namespace Exspectans
 
             DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(TileManager), Factory = () => _tileManager, IsSingleton = true });
             DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(GameManager), Factory = () => _gameManager, IsSingleton = true });
-            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(WorldManager), Factory = () => _worldManager, IsSingleton = true });
-            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(WorldGenerator), Factory = () => _worldGenerator, IsSingleton = true });
-            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(WorldRenderer), Factory = () => _worldRenderer, IsSingleton = true });
+            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(LevelManager), Factory = () => _worldManager, IsSingleton = true });
+            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(LevelGenerator), Factory = () => _worldGenerator, IsSingleton = true });
+            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(LevelRenderer), Factory = () => _worldRenderer, IsSingleton = true });
         }
     }
 }
