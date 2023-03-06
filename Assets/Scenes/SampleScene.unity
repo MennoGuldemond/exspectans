@@ -540,6 +540,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1594880266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8594576985775712553, guid: 558100fd1e8bd934785f00a2838de99d, type: 3}
+  m_PrefabInstance: {fileID: 2723309594162701942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1f7a34934040f4fb3181346fd9a3a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1594880268 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2723309594096807467, guid: 558100fd1e8bd934785f00a2838de99d, type: 3}
+  m_PrefabInstance: {fileID: 2723309594162701942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ac82affba72af4385d31872c8733a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1594880269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4195051617357799308, guid: 558100fd1e8bd934785f00a2838de99d, type: 3}
+  m_PrefabInstance: {fileID: 2723309594162701942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f93ccf1f432c594589e6ceb33482e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2723309594162701942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -627,5 +660,17 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 1015254188}
+    - target: {fileID: 4507374939284784734, guid: 558100fd1e8bd934785f00a2838de99d, type: 3}
+      propertyPath: _levelManager
+      value: 
+      objectReference: {fileID: 1594880269}
+    - target: {fileID: 4507374939284784734, guid: 558100fd1e8bd934785f00a2838de99d, type: 3}
+      propertyPath: _levelRenderer
+      value: 
+      objectReference: {fileID: 1594880268}
+    - target: {fileID: 4507374939284784734, guid: 558100fd1e8bd934785f00a2838de99d, type: 3}
+      propertyPath: _levelGenerator
+      value: 
+      objectReference: {fileID: 1594880266}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558100fd1e8bd934785f00a2838de99d, type: 3}
