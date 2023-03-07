@@ -1,35 +1,52 @@
 using Exspectans.Data;
 using Exspectans.DependencyInjection;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace Exspectans.Level
 {
-    [RequireComponent(typeof(Grid))]
     public class LevelRenderer : MonoBehaviour
     {
-        private Tilemap _tilemap;
         private TileManager _tileManager;
+        private Tile[,] _tiles;
 
         void Start()
         {
-            _tilemap = GetComponentInChildren<Tilemap>();
             _tileManager = DependenciesContext.Dependencies.Get<TileManager>();
         }
 
-        public Tilemap Render(LevelData level)
+        public Tile[,] Render(LevelData level)
         {
+            _tiles = new Tile[level.Width, level.Height];
             for (int x = 0; x < level.Width; x++)
             {
                 for (int y = 0; y < level.Height; y++)
                 {
-                    var tile = ScriptableObject.CreateInstance<Tile>();
-                    var tileData = level.Tiles[x, y];
-                    tile.sprite = _tileManager.GetSprite(tileData.Name);
-                    _tilemap.SetTile(new Vector3Int(x, y, 0), tile);
+                    _tiles[x, y] = GreateTileGO(x, y, level);
                 }
             }
-            return _tilemap;
+            return _tiles;
+        }
+
+        private Tile GreateTileGO(int x, int y, LevelData level)
+        {
+            // Greate GameObject, set name and add components
+            var tileGO = new GameObject($"Tile {x}-{y}");
+            var spriteRenderer = tileGO.AddComponent<SpriteRenderer>();
+            var tile = tileGO.AddComponent<Tile>();
+
+            // Set tile data
+            tile.Data = level.Tiles[x, y];
+
+            // Get sprite for tile
+            spriteRenderer.sprite = _tileManager.GetSprite(tile.Data.Name);
+
+            // Cluster all the tiles under the Transform of this script
+            tileGO.transform.SetParent(transform);
+
+            // Set position in world
+            tileGO.transform.position = new Vector3(x, y, 0);
+
+            return tile;
         }
     }
 }

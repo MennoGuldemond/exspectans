@@ -12,22 +12,10 @@ namespace Exspectans
 
         private LevelManager _levelmanager;
 
-        private Vector3Int previousMousePos = new();
-
         void Start()
         {
             _levelmanager = DependenciesContext.Dependencies.Get<LevelManager>();
             _levelmanager.Create(WorldWidth, WorldHeight);
-        }
-
-        private void Update()
-        {
-            var mousePos = GetMousePosition();
-            if (!mousePos.Equals(previousMousePos))
-            {
-                Outline.transform.position = new Vector3(mousePos.x + .5f, mousePos.y + .5f, 0);
-                previousMousePos = mousePos;
-            }
         }
 
         public void OnPrimary()
@@ -43,7 +31,7 @@ namespace Exspectans
         private Vector3Int GetMousePosition()
         {
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            return _levelmanager.Tilemap.WorldToCell(mouseWorldPos);
+            return new Vector3Int((int)Mathf.Round(mouseWorldPos.x), (int)Mathf.Round(mouseWorldPos.y), 0);
         }
     }
 }
